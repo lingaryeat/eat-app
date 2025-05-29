@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>推薦吃什麼</title>
+  <!-- 引入外部 CSS 樣式 -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>根據你的心情，我來推薦今天要吃什麼 🍴</h1>
+
+  <!-- 心情選擇按鈕 -->
+  <div id="mood-buttons">
+    <button onclick="selectMood('happy')">😄 開心</button>
+    <button onclick="selectMood('sad')">😢 難過</button>
+    <button onclick="selectMood('tired')">😩 很累</button>
+    <button onclick="selectMood('angry')">😠 生氣</button>
+    <button onclick="selectMood('bored')">😐 無聊</button>
+  </div>
+
+  <!-- AI 推薦結果顯示 -->
+  <div id="result"></div>
+
+  <!-- 今日紀錄區塊 -->
+  <div id="log-area">
+    <h2>📘 今日推薦紀錄</h2>
+    <div id="log-list"></div>
+  </div>
+
+  <!-- 底部功能列 -->
+  <div class="bottom-nav">
+    <button onclick="alert('回到首頁')">🏠<br>首頁</button>
+    <button onclick="alert('進入小遊戲區')">🎮<br>遊戲</button>
+    <button onclick="alert('查看收藏')">❤️<br>收藏</button>
+    <button onclick="alert('會員登入/設定')">👤<br>會員</button>
+  </div>
+
+  <!-- 引入外部 JS 腳本 -->
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+/* 🔸 整體背景與版面配置：柔和漸層背景、置中排列 */
+body {
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to bottom right, #fff8f0, #ffe5ec);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* 🔸 標題文字樣式：置中、留白、響應式字體 */
+h1 {
+  margin-top: 30px;
+  text-align: center;
+  padding: 0 20px;
+  font-size: 1.5rem;
+}
+
+/* 🔸 心情按鈕容器：2 欄排列、間距設定 */
+#mood-buttons {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: repeat(2, 140px);
+  gap: 20px;
+  justify-content: center;
+}
+
+/* 🔸 每個心情按鈕樣式：卡片風格、動畫效果 */
+#mood-buttons button {
+  background-color: #fff;
+  border: none;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  width: 140px;
+  height: 80px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+/* 🔸 滑鼠滑過按鈕時放大、陰影加深 */
+#mood-buttons button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 🔸 AI 推薦結果區塊：卡片樣式、置中對齊 */
+#result {
+  margin-top: 40px;
+  padding: 20px;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  font-size: 1.2rem;
+  min-height: 60px;
+}
+
+/* 🔸 底部功能列：固定下方、橫排分布、陰影提升層次 */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #fff;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  font-size: 1.2rem;
+  z-index: 100;
+}
+
+/* 🔸 底部功能列按鈕：透明背景、圖文垂直排列 */
+.bottom-nav button {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #444;
+}
+
+/* 🔸 紀錄區塊外觀：卡片樣式、與主畫面一致 */
+#log-area {
+  margin-top: 30px;
+  width: 90%;
+  max-width: 400px;
+  background: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+}
+
+/* 🔸 紀錄標題樣式 */
+#log-area h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+/* 🔸 每一筆紀錄項目間距設定 */
+.log-item {
+  margin-bottom: 12px;
+}
