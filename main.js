@@ -1,35 +1,85 @@
-// 🔸 心情與對應推薦資料（範例）
-const foodMap = {
-  '開心': ['壽司', '烤雞', '冰淇淋'],
-  '難過': ['拉麵', '炸雞', '巧克力'],
-  '很累': ['牛肉麵', '熱湯', '能量飲'],
-  '生氣': ['麻辣鍋', '漢堡', '可樂'],
-  '無聊': ['鹽酥雞', '泡麵', '蛋糕']
-};
-
-// 🔸 使用者選擇心情時的主動作
+// 🔸 使用者點選心情後：詢問是否用遊戲來推薦，否則直接推薦食物
 function selectMood(mood) {
-  const foodList = foodMap[mood];
-  const choice = foodList[Math.floor(Math.random() * foodList.length)];
-  document.getElementById("recommendation").innerText = `你現在心情是「${mood}」，我推薦你吃：${choice}`;
-
-  // 儲存推薦紀錄到 localStorage
-  const today = new Date().toISOString().split('T')[0];
-  let history = JSON.parse(localStorage.getItem("history") || "{}");
-  if (!history[today]) history[today] = [];
-  history[today].push({ mood, food: choice });
-  localStorage.setItem("history", JSON.stringify(history));
-}
-
-// 🔸 顯示今日推薦紀錄
-function showHistory() {
-  const today = new Date().toISOString().split('T')[0];
-  let history = JSON.parse(localStorage.getItem("history") || "{}");
-  let list = history[today] || [];
-  if (list.length === 0) {
-    alert("你今天還沒有推薦紀錄喔！");
+  const confirmGame = confirm("要不要讓小遊戲來幫你決定吃什麼呢？😋");
+  if (confirmGame) {
+    alert("即將進入小遊戲模組（未來開發）...");
+    // TODO: 將來可跳轉遊戲功能
   } else {
-    const msg = list.map((item, i) => `${i + 1}. ${item.mood} ➜ ${item.food}`).join('\n');
-    alert("今日推薦紀錄：\n" + msg);
+    getAIRecommendation(mood);
   }
 }
+
+// 🔸 根據心情推薦食物，並儲存紀錄到 localStorage
+function getAIRecommendation(mood) {
+  let recommendation = "";
+  switch (mood) {
+    case "happy":
+      recommendation = "你今天心情超棒！不如吃點火鍋來慶祝吧 🍲";
+      break;
+    case "sad":
+      recommendation = "甜點最能療癒悲傷，來塊蛋糕或冰淇淋吧 🎂🍦";
+      break;
+    case "tired":
+      recommendation = "補充體力！咖哩飯或牛肉麵是個不錯的選擇 🍛🍜";
+      break;
+    case "angry":
+      recommendation = "來點辣的！麻辣燙或韓式炸雞正適合你現在的怒火 🔥🐔";
+      break;
+    case "bored":
+      recommendation = "試試異國料理或街邊小吃，今天就來點不一樣的 🍱🥟";
+      break;
+  }
+  document.getElementById("result").innerText = recommendation;
+
+  const now = new Date();
+  const log = {
+    time: now.toLocaleString(),
+    mood: mood,
+    aiFood: recommendation,
+    actualFood: "（尚未紀錄）",
+  };
+
+  const logs = JSON.parse(localStorage.getItem("eat-log") || "[]");
+  logs.unshift(log); // 最新的放最前面
+  localStorage.setItem("eat-log", JSON.stringify(logs));
+
+  renderLogList(); // 重新顯示紀錄
+}
+
+// 🔸 顯示當天的紀錄清單（含修改按鈕）
+function renderLogList() {
+  const logList = document.getElementById("log-list");
+  logList.innerHTML = "";
+  const logs = JSON.parse(localStorage.getItem("eat-log") || "[]");
+  const today = new Date().toLocaleDateString();
+
+  logs
+    .filter((log) => log.time.startsWith(today))
+    .forEach((log, index) => {
+      const div = document.createElement("div");
+      div.className = "log-item";
+      div.innerHTML = `
+        🕒 ${log.time}<br>
+        🧠 心情：${log.mood}<br>
+        🤖 推薦：${log.aiFood}<br>
+        🍴 實際：<span id="actual-${index}">${log.actualFood}</span>
+        <button onclick="editActualFood(${index})">✏️ 修改</button>
+      `;
+      logList.appendChild(div);
+    });
+}
+
+// 🔸 修改實際吃了什麼食物
+function editActualFood(index) {
+  const input = prompt("你實際吃的是什麼？");
+  if (!input) return;
+  const logs = JSON.parse(localStorage.getItem("eat-log") || "[]");
+  logs[index].actualFood = input;
+  localStorage.setItem("eat-log", JSON.stringify(logs));
+  renderLogList();
+}
+
+// 🔸 初始載入：自動顯示紀錄
+window.onload = () => {
+  renderLogList();
+};
