@@ -50,20 +50,30 @@ body {
   margin-bottom: 30px;
 }
 
-/* 🔘 每個心情按鈕樣式 */
+/* 🔘 心情按鈕美化樣式 */
 .mood-buttons button {
-  background: radial-gradient(circle, #372c4e, #1d1433); /* 背景漸層 */
-  border: 2px solid #a07fff; /* 外框顏色 */
-  border-radius: 50%; /* 圓形按鈕 */
-  width: 55px;
-  height: 55px; /* 固定尺寸 */
-  font-size: 1.4rem; /* 按鈕中文字大小 */
-  color: white;
-  display: flex; /* 讓裡面的 emoji 或文字居中 */
+  background: radial-gradient(circle at 30% 30%, #4d3d73, #1a102b); /* 圓形立體漸層 */
+  border: none; /* 移除原本的實線邊框 */
+  border-radius: 50%; /* 保持圓形 */
+  width: 64px;
+  height: 64px;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  box-shadow:
+    inset 0 0 6px rgba(255, 255, 255, 0.2),  /* 內陰影，增加立體感 */
+    0 0 10px rgba(160, 127, 255, 0.6);       /* 外發光效果 */
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s; /* 點擊時的動畫 */
+  transition: transform 0.2s ease;
+  padding: 4px;
+}
+
+/* 🔘 按下時的縮放效果 */
+.mood-buttons button:active {
+  transform: scale(0.95);
 }
 
 /* 🔄 滑鼠懸停放大效果 */
