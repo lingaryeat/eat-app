@@ -1,0 +1,117 @@
+/* 🌌 整體頁面設定 */
+body {
+  margin: 0;
+  background: #0c0b1f; /* 深紫背景，營造神秘感 */
+  font-family: 'Segoe UI', sans-serif;
+  color: #fffecb;
+  text-align: center;
+}
+
+/* 🧱 主內容區塊（內距保留底部空間） */
+.main {
+  padding: 20px 20px 120px;
+}
+
+/* 🟡 頁面標題文字 */
+.title {
+  font-size: 2.4rem;
+  font-weight: bold;
+  margin-bottom: 18px;
+  color: #fff6b3;
+}
+
+/* 🔮 水晶球容器（置中） */
+.crystal-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 🔮 水晶球圖片樣式 */
+.crystal {
+  width: 400px; /* 放大尺寸 */
+  filter: drop-shadow(0 0 22px #8cc8ff); /* 藍色光暈效果 */
+  margin-bottom: 30px;
+}
+
+/* ✨ 提示文字 */
+.subtitle {
+  font-size: 1.05rem;
+  margin-bottom: 15px;
+  color: #fbeab3;
+}
+
+/* 😊 心情選擇區塊 */
+.mood-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-bottom: 30px;
+}
+
+/* 🔘 每個心情按鈕樣式 */
+.mood-buttons button {
+  background: radial-gradient(circle, #372c4e, #1d1433);
+  border: 2px solid #a07fff;
+  border-radius: 50%;
+  width: 72px;
+  height: 72px;
+  font-size: 1.4rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s;
+}
+
+/* 🔄 滑鼠懸停放大效果 */
+.mood-buttons button:hover {
+  transform: scale(1.08);
+}
+
+/* 👇 心情文字（小字在 emoji 下方） */
+.mood-buttons span {
+  font-size: 0.7rem;
+  margin-top: 4px;
+  color: #fff;
+}
+
+/* 📦 推薦結果顯示區 */
+#result {
+  background: #261b36;
+  padding: 15px;
+  margin: 10px auto;
+  border-radius: 12px;
+  width: 85%;
+  max-width: 400px;
+  font-size: 1.1rem;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+/* 📱 底部功能列 */
+#bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #1b1330;
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+/* 底部每個按鈕樣式 */
+#bottom-nav button {
+  background: none;
+  border: none;
+  color: #ffeebb;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
