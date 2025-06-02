@@ -27,11 +27,14 @@ body {
   align-items: center; /* 垂直置中，保留未來擴充彈性 */
 }
 
-/* 🔮 水晶球圖片樣式 */
+/* 🔮 水晶球圖片樣式（加入旋轉動畫支援） */
 .crystal {
-  width: 300px; /* 放大水晶球，作為視覺核心 */
-  filter: drop-shadow(0 0 22px #8cc8ff); /* 加入藍色光暈營造神秘能量感 */
-  margin-bottom: 30px; /* 與下方文字保留空間 */
+  width: 300px;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 0 22px #8cc8ff);
+  transition: transform 0.1s linear; /* 順暢轉動動畫 */
+  transform-style: preserve-3d;     /* 保留 3D 效果層次 */
+  cursor: grab;                     /* 滑鼠移入顯示可拖曳手勢 */
 }
 
 /* ✨ 提示文字（例如：請選擇你的心情） */
@@ -125,4 +128,25 @@ body {
   flex-direction: column;
   align-items: center;
   cursor: pointer; /* 鼠標變手形，提升互動感 */
+}
+
+/* 📘 日誌紀錄區（如有 log-list 區塊） */
+#log-list {
+  padding: 10px 15px;
+  text-align: left;
+  max-width: 420px;
+  margin: 0 auto;
+}
+.log-item {
+  background: #1a1324;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ffe;
+}
+.log-item button {
+  margin-top: 5px;
+  font-size: 0.75rem;
 }
