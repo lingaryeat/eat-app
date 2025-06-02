@@ -52,18 +52,18 @@ body {
 
 /* 🔘 每個心情按鈕樣式 */
 .mood-buttons button {
-  background: radial-gradient(circle, #372c4e, #1d1433);
-  border: 2px solid #a07fff;
-  border-radius: 50%;
-  width: 72px;
-  height: 72px;
-  font-size: 1.4rem;
+  background: radial-gradient(circle, #372c4e, #1d1433); /* 背景漸層 */
+  border: 2px solid #a07fff; /* 外框顏色 */
+  border-radius: 50%; /* 圓形按鈕 */
+  width: 55px;
+  height: 55px; /* 固定尺寸 */
+  font-size: 1.4rem; /* 按鈕中文字大小 */
   color: white;
-  display: flex;
+  display: flex; /* 讓裡面的 emoji 或文字居中 */
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s;
+  transition: transform 0.2s; /* 點擊時的動畫 */
 }
 
 /* 🔄 滑鼠懸停放大效果 */
