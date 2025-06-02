@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex, nofollow" />
-  <title>吃什麼？</title>
+  <meta charset="UTF-8" /> <!-- 設定字元編碼為 UTF-8，支援中文 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 行動裝置適配 -->
+  <title>吃什麼？3D水晶球版</title> <!-- 網頁標題 -->
+  
+  <!-- 🔗 載入外部 CSS 樣式 -->
   <link rel="stylesheet" href="style.css" />
-  <script defer src="main.js"></script>
+  
+  <!-- 💡 載入 Three.js 3D 引擎 -->
+  <script src="./three.min.js"></script>
 </head>
+
 <body>
   <div class="main">
-    <!-- 🌟 黃色主標題 -->
+    <!-- 🟡 主標題 -->
     <h1 class="title">吃什麼？</h1>
 
-    <!-- 🔮 水晶球主圖 -->
+    <!-- 🔮 水晶球容器（內部會由 Three.js 建立畫面） -->
     <div class="crystal-wrap">
-      <img src="crystal-ball.png" alt="水晶球" class="crystal" />
+      <div id="crystal-container"></div>
     </div>
 
-    <!-- ✨ 副標文字 -->
+    <!-- ✨ 提示語句 -->
     <p class="subtitle">請選擇你的心情：</p>
 
-    <!-- 😄 Emoji 心情按鈕 -->
+    <!-- 😊 心情選擇按鈕 -->
     <div class="mood-buttons">
       <button onclick="selectMood('happy')">😄<span>開心</span></button>
       <button onclick="selectMood('sad')">😢<span>難過</span></button>
@@ -30,16 +34,26 @@
       <button onclick="selectMood('bored')">😐<span>無聊</span></button>
     </div>
 
-    <!-- 🍱 推薦結果 -->
+    <!-- 📦 推薦結果顯示區 -->
     <div id="result"></div>
   </div>
 
   <!-- 📲 底部導覽列 -->
   <footer id="bottom-nav">
+    <!-- 🏠 回到頁面頂部 -->
     <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">🏠<br>首頁</button>
+
+    <!-- 🎮 進入遊戲（暫為 alert） -->
     <button onclick="alert('進入小遊戲區')">🎮<br>遊戲</button>
+
+    <!-- ❤️ 查看紀錄 -->
     <button onclick="showHistory()">❤️<br>紀錄</button>
+
+    <!-- 👤 會員功能 -->
     <button onclick="alert('會員功能尚未開放')">👤<br>會員</button>
   </footer>
+
+  <!-- 🧠 主要功能腳本 -->
+  <script src="main.js"></script>
 </body>
 </html>
