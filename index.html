@@ -3,30 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- 🛡 防止被搜尋引擎收錄，開發階段使用，上線時可刪除 -->
   <meta name="robots" content="noindex, nofollow" />
-  
   <title>推薦吃什麼</title>
-  <!-- 引入外部 CSS 樣式 -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>根據你的心情，我來推薦今天要吃什麼 🍴</h1>
-
-  <!-- 心情選擇按鈕 -->
-  <div id="mood-buttons">
-    <button onclick="selectMood('happy')">😄 開心</button>
-    <button onclick="selectMood('sad')">😢 難過</button>
-    <button onclick="selectMood('tired')">😩 很累</button>
-    <button onclick="selectMood('angry')">😠 生氣</button>
-    <button onclick="selectMood('bored')">😐 無聊</button>
+  <!-- 🌌 頂部：水晶球圖＋標題 -->
+  <div class="header">
+    <!-- 📸 使用你生成的圖像，檔名請儲存為 crystal-ball.png 並上傳到 GitHub Pages 中同一資料夾 -->
+    <img src="crystal-ball.png" class="crystal" alt="水晶球" />
+    <h1>讓神秘力量為你推薦今天吃什麼 ✨</h1>
   </div>
 
-  <!-- AI 推薦結果顯示 -->
+  <!-- 😄 心情按鈕區 -->
+  <div id="mood-buttons">
+    <button onclick="selectMood('happy')">😄<span>開心</span></button>
+    <button onclick="selectMood('sad')">😢<span>難過</span></button>
+    <button onclick="selectMood('tired')">😩<span>很累</span></button>
+    <button onclick="selectMood('angry')">😠<span>生氣</span></button>
+    <button onclick="selectMood('bored')">😐<span>無聊</span></button>
+  </div>
+
+  <!-- 🔮 推薦結果 -->
   <div id="result"></div>
 
-   <!-- 底部功能列 -->
+  <!-- 底部功能列 -->
   <div class="bottom-nav">
     <button onclick="alert('回到首頁')">🏠<br>首頁</button>
     <button onclick="alert('進入小遊戲區')">🎮<br>遊戲</button>
@@ -34,7 +35,6 @@
     <button onclick="alert('會員登入/設定')">👤<br>會員</button>
   </div>
 
-  <!-- 引入外部 JS 腳本 -->
   <script src="main.js"></script>
 </body>
 </html>
