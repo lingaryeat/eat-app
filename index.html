@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>吃什麼？3D水晶球</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main">
+    <h1 class="title">吃什麼？</h1>
+    <div class="crystal-wrap"><div id="crystal-container"></div></div>
+    <p class="subtitle">請選擇你的心情：</p>
+    <div class="mood-buttons">
+      <button onclick="selectMood('happy')">😄<span>開心</span></button>
+      <button onclick="selectMood('sad')">😢<span>難過</span></button>
+      <button onclick="selectMood('tired')">😩<span>很累</span></button>
+      <button onclick="selectMood('angry')">😠<span>生氣</span></button>
+      <button onclick="selectMood('bored')">😐<span>無聊</span></button>
+    </div>
+    <div id="result">請先選擇一個心情來看看推薦結果...</div>
+  </div>
+
+  <footer id="bottom-nav">
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})">🏠<br>首頁</button>
+    <button onclick="alert('進入小遊戲區')">🎮<br>遊戲</button>
+    <button onclick="showHistory()">❤️<br>紀錄</button>
+    <button onclick="alert('會員功能尚未開放')">👤<br>會員</button>
+  </footer>
+
+  <!-- ✅ 正確使用模組語法，改為 type="module" -->
+  <script type="module">
+    import * as THREE from './lib/three/build/three.module.js';
+    import { EffectComposer } from './lib/three/examples/jsm/postprocessing/EffectComposer.js';
+    import { RenderPass } from './lib/three/examples/jsm/postprocessing/RenderPass.js';
+    import { ShaderPass } from './lib/three/examples/jsm/postprocessing/ShaderPass.js';
+    import { UnrealBloomPass } from './lib/three/examples/jsm/postprocessing/UnrealBloomPass.js';
+    import { CopyShader } from './lib/three/examples/jsm/shaders/CopyShader.js';
+    import { LuminosityHighPassShader } from './lib/three/examples/jsm/shaders/LuminosityHighPassShader.js';
+    import { Pass } from './lib/three/examples/jsm/postprocessing/Pass.js';
+    import { MaskPass } from './lib/three/examples/jsm/postprocessing/MaskPass.js';
+    import './main.mjs';
+  </script>
+</body>
+</html>
